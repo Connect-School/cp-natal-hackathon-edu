@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block home %}
+<a href="/{{ tipo_organizacao }}" class="navbar-brand">{{ organizacao.nome }}</a>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-primary text-center">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ aviso.mensagem.criador }}</h3>
+            </div>
+            <div class="panel-body">
+                {{ aviso.mensagem.texto }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

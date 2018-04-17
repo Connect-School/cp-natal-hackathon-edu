@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Connect School</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">-->
+        <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'general.css' %}">
+        {% block styles %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-left"><img src="{% static 'connect.png' %}" alt="" width="50" height="50"></a>
+
+                    {% block home %}
+                    {% endblock %}
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                {% block lista_funcionalidades %}
+                {% endblock %}
+
+                    {% if usuario_autenticado %}
+                    <!--<ul class="nav navbar-nav">-->
+                        <!--<li>-->
+                            <!--<a href="/informavel/aviso">Avisos</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="/informavel/forum">Forúns</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-cog"></i> <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/logout" target="">Sair</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fas fa-bell"></i></a></li>
+                    </ul>
+                    {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login" target="">Entrar</a></li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+        <script src="{% static 'bootstrap.min.js' %}"></script>
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>

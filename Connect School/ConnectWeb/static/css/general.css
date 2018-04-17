@@ -1,0 +1,11 @@
+body > .container-fluid {
+  padding: 100px 5% 0;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td{
+    background-color: #ced6e2;
+}
+
+.table-hover > tbody > tr:hover > td{
+    background-color: #abbddb;
+}
